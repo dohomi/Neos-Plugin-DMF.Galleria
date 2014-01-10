@@ -1,0 +1,27 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace media=TYPO3\Media\ViewHelpers}
+
+
+<f:if condition="{url}">
+    <li>
+        <a href="{url}" class="element">
+            <f:if condition="{image}">
+                <f:then>
+                    <image src="{media:uri.image(image:'{image}',maximumWidth:'{thumbWidth}',maximumHeight:'{thumbHeight}')}"
+                           data-title="{title}" data-description="{description}"/>
+                </f:then>
+                <f:else>
+                    <span class="{f:if(condition:'{isIframe}',then:'iframe',else:'video')}" data-title="{title}"
+                          data-description="{description}">Watch this</span>
+                </f:else>
+            </f:if>
+        </a>
+
+        <f:if condition="{hasLayer}">
+            <div class="layer">
+                    {neos:contentElement.editable(property: 'layer', node: node)}
+            </div>
+        </f:if>
+    </li>
+</f:if>
+

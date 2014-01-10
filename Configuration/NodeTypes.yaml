@@ -1,0 +1,289 @@
+'DMF.Galleria:Galleria':
+  superTypes: ['TYPO3.Neos:Content']
+  ui:
+    group: 'plugins'
+    label: 'Galleria'
+    icon: 'icon-camera'
+    inlineEditable: TRUE
+    inspector:
+      groups:
+        galleria:
+          label: 'Galleria main'
+        thumbnails:
+          label: 'Galleria thumbnails & transitions'
+        lightbox:
+          label: 'Galleria lightbox & carousel'
+  childNodes:
+    gcontent:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    height:
+      type: string
+      ui:
+        label: 'Height'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'galleria'
+    width:
+      type: string
+      defaultValue: 'auto'
+      ui:
+        label: 'Width'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'galleria'
+    imagePosition:
+      type: string
+      defaultValue: 'center'
+      ui:
+        label: 'Image Position'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'galleria'
+    imageCrop:
+      type: string
+      defaultValue: 'true'
+      ui:
+        label: 'Image crop'
+        inspector:
+          group: 'galleria'
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              'true':
+                label: 'true'
+              'false':
+                label: 'false'
+              'height':
+                label: 'height'
+              'width':
+                label: 'width'
+              'landscape':
+                label: 'landscape'
+              'portrait':
+                label: 'portrait'
+    showCounter:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Show counter'
+        inspector:
+          group: galleria
+    showInfo:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Show title / description'
+        inspector:
+          group: galleria
+    showImagenav:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Hide image navigation'
+        inspector:
+          group: galleria
+    wait:
+      type: string
+      ui:
+        label: 'Wait for jquery ui (bool or int)'
+        inspector:
+          group: 'galleria'
+    debug:
+      type: boolean
+      defaultValue: FALSE
+      ui:
+        label: 'Debug'
+        inspector:
+          group: 'galleria'
+
+    thumbWidth:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Thumbnail width'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'thumbnails'
+      validation:
+        regularExpression:
+          regularExpression: '/[0-9]/'
+    thumbHeight:
+      type: string
+      defaultValue: '40'
+      ui:
+        label: 'Thumbnail height'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'thumbnails'
+      validation:
+        regularExpression:
+          regularExpression: '/[0-9]/'
+    thumbnails:
+      type: string
+      defaultValue: 'true'
+      ui:
+        label: 'Thumbnails'
+        inspector:
+          group: 'thumbnails'
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              'true':
+                label: 'true'
+              'false':
+                label: 'false'
+              'empty':
+                label: 'empty'
+              'numbers':
+                label: 'numbers'
+    transition:
+      type: string
+      defaultValue: 'slide'
+      ui:
+        label: 'Image transition'
+        inspector:
+          group: 'thumbnails'
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              'fade':
+                label: 'fade'
+              'slide':
+                label: 'slide'
+              'flash':
+                label: 'flash'
+              'fadeslide':
+                label: 'fadeslide'
+
+
+
+    lightbox:
+      type: boolean
+      defaultValue: FALSE
+      ui:
+        label: 'Enable lightbox'
+        inspector:
+          group: 'lightbox'
+    overlayBackground:
+      type: string
+      ui:
+        label: 'Lightbox overlay background (#b0b0b0)'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'lightbox'
+    overlayOpacity:
+      type: string
+      ui:
+        label: 'Lightbox overlay opacity (0.85)'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'lightbox'
+    carousel:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Enable carousel'
+        inspector:
+          group: 'lightbox'
+    carouselSpeed:
+      type: string
+      ui:
+        label: 'Carousel speed (1200)'
+        inspector:
+          group: 'lightbox'
+      validation:
+        regularExpression:
+          regularExpression: '/[0-9]/'
+    carouselSteps:
+      type: string
+      ui:
+        label: 'Carousel steps (int or auto)'
+        inspector:
+          group: 'lightbox'
+
+
+'DMF.Galleria:GalleriaImage':
+  superTypes: ['TYPO3.Neos:Content']
+  ui:
+    group: 'structure'
+    label: 'Image for Galleria'
+    icon: 'icon-camera-retro'
+    inlineEditable: TRUE
+    inspector:
+      groups:
+        image:
+          label: 'Galleria image'
+        config:
+          label: 'Galleria context'
+  properties:
+    image:
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Image'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'image'
+    title:
+      type: string
+      ui:
+        label: 'Title'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'config'
+    description:
+      type: string
+      ui:
+        label: 'Description'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'config'
+    link:
+      type: string
+      ui:
+        label: 'Link'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'config'
+    hasLayer:
+      type: boolean
+      ui:
+        label: 'Enable layer'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'config'
+    layer:
+      type: string
+      defaultValue: ''
+      ui:
+        inlineEditable: TRUE
+
+'DMF.Galleria:GalleriaVideo':
+  superTypes: ['DMF.Galleria:GalleriaImage']
+  ui:
+    group: 'structure'
+    label: 'Video for Galleria'
+    icon: 'icon-camera-retro'
+    inlineEditable: TRUE
+    inspector:
+      groups:
+        image:
+          label: 'Galleria thumbnail'
+        video:
+          label: 'Galleria video/iframe'
+  properties:
+    url:
+      type: string
+      ui:
+        label: 'Video / IFrame link'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'video'
+    isIframe:
+      type: boolean
+      defaultValue: FALSE
+      ui:
+        label: 'IFrame instead video'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'video'

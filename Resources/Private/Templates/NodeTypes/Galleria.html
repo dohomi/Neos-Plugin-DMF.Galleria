@@ -1,0 +1,26 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+
+<div id="g_{identifier}" class="galleria-wrap"
+{f:if(condition:'{height}', then:' data-height="{height}"')}
+{f:if(condition:'{width}', then:' data-width="{width}"')}
+{f:if(condition:'{thumbnails}', then:' data-thumbnails="{thumbnails}"', else:' data-thumbnails="false"')}
+{f:if(condition:'{imagePosition}', then:' data-image-position="{imagePosition}"')}
+{f:if(condition:'{imageCrop}', then:' data-image-crop="{imageCrop}"', else: ' data-image-crop="false"')}
+{f:if(condition:'{showCounter}', else: ' data-show-counter="false"')}
+{f:if(condition:'{showInfo}', else: ' data-show-info="false"')}
+{f:if(condition:'{showImagenav}', else: ' data-show-imagenav="false"')}
+{f:if(condition:'{lightbox}', then: ' data-lightbox="true"')}
+{f:if(condition:'{overlayBackground}', then: ' data-overlay-background="{overlayBackground}"')}
+{f:if(condition:'{overlayOpacity}', then: ' data-overlay-opacity="{overlayOpacity}"')}
+{f:if(condition:'{carousel}', else: ' data-carousel="false"')}
+{f:if(condition:'{carouselSpeed}', then: ' data-carousel-speed="{carouselSpeed}"')}
+{f:if(condition:'{carouselSteps}', then: ' data-carousel-steps="{carouselSteps}"')}
+{f:if(condition:'{transition}', then: ' data-transition="{transition}"')}
+{f:if(condition:'{wait}', then: ' data-wait="{wait}"')}
+{f:if(condition:'{debug}', then: ' data-debug="true"')}
+
+>
+    {galleriaItems -> f:format.raw()}
+
+</div>

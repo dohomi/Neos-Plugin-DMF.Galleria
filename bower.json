@@ -1,0 +1,12 @@
+{
+    "name": "DMF.Galleria",
+    "version": "0.0.1",
+    "dependencies": {
+        "jquery-galleria":"*"
+    },
+    "ignore": [
+        "**/doc*",
+        "**/.*"
+    ],
+    "private": true
+}

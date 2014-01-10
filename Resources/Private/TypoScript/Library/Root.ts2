@@ -1,0 +1,17 @@
+prototype(DMF.Galleria:Galleria) < prototype(TYPO3.Neos:Content) {
+
+    identifier = ${q(node).property('_identifier')}
+    galleriaItems = TYPO3.Neos:ContentCollection {
+        nodePath = 'gcontent'
+    }
+
+}
+
+prototype(DMF.Galleria:GalleriaImage) < prototype(TYPO3.Neos:Content) {
+    thumbWidth = ${q(node).parents('[instanceof DMF.Galleria:Galleria]').property('thumbWidth')}
+    thumbHeight = ${q(node).parents('[instanceof DMF.Galleria:Galleria]').property('thumbHeight')}
+}
+
+prototype(DMF.Galleria:GalleriaVideo) < prototype(DMF.Galleria:GalleriaImage) {
+
+}
