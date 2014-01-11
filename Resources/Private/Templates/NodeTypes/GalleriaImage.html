@@ -2,16 +2,15 @@
 {namespace media=TYPO3\Media\ViewHelpers}
 
 <f:if condition="{image}">
-    <li>
-        <a href="{media:uri.image(image:'{image}')}">
-            <image src="{media:uri.image(image:'{image}',maximumWidth:'{thumbWidth}',maximumHeight:'{thumbHeight}')}"
-                   data-title="{title}" data-description="{description}"/>
-        </a>
 
+    <a href="{media:uri.image(image:'{image}')}">
+        <img src="{media:uri.image(image:'{image}',maximumWidth:'{thumbWidth}',maximumHeight:'{thumbHeight}')}"
+             data-title="{title}" data-description="{description}"/>
         <f:if condition="{hasLayer}">
             <div class="layer">
-                    {neos:contentElement.editable(property: 'layer', node: node)}
+                {neos:contentElement.editable(property: 'layer', node: node)}
             </div>
         </f:if>
-    </li>
+    </a>
+
 </f:if>
