@@ -11,7 +11,7 @@ $(function () {
                 }
             }
         });
-        
+
         $elem.css('height', $data.height);
         $elem.css('width', $data.width);
         Galleria.run($elem,

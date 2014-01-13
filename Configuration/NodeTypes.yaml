@@ -201,8 +201,6 @@
         label: 'Carousel steps (int or auto)'
         inspector:
           group: 'lightbox'
-
-
 'DMF.Galleria:GalleriaImage':
   superTypes: ['TYPO3.Neos:Content']
   ui:
@@ -257,7 +255,6 @@
       defaultValue: ''
       ui:
         inlineEditable: TRUE
-
 'DMF.Galleria:GalleriaVideo':
   superTypes: ['DMF.Galleria:GalleriaImage']
   ui:

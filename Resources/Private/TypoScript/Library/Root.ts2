@@ -12,6 +12,10 @@ prototype(DMF.Galleria:GalleriaImage) < prototype(TYPO3.Neos:Content) {
     thumbHeight = ${q(node).parents('[instanceof DMF.Galleria:Galleria]').property('thumbHeight')}
 }
 
-prototype(DMF.Galleria:GalleriaVideo) < prototype(DMF.Galleria:GalleriaImage) {
-
+prototype(DMF.Galleria:GalleriaVideo) < prototype(TYPO3.Neos:Content) {
+    thumbWidth = ${q(node).parents('[instanceof DMF.Galleria:Galleria]').property('thumbWidth')}
+    thumbHeight = ${q(node).parents('[instanceof DMF.Galleria:Galleria]').property('thumbHeight')}
 }
+
+
+//prototype(DMF.Galleria:GalleriaVideo) < prototype(DMF.Galleria:GalleriaImage) {}
